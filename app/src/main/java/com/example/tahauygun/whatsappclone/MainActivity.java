@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         FirebaseApp.initializeApp(this);
+        userIsLoggedIn();
+
         mPhoneNumber = findViewById(R.id.phoneNumber);
         mCode = findViewById(R.id.code);
 
@@ -47,8 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(FirebaseException e) {}
-        }
-
+        };
     }
 
     private void signInWithPhoneAuthCredential(PhoneAuthCredential phoneAuthCredential) {
